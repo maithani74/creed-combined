@@ -50,7 +50,7 @@ const AdminProducts = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        "https://creed-backend-vxes.onrender.com/api/v1/product/product-count"
+        "http://localhost:8080/api/v1/product/product-count"
         );
       setTotal(data?.total);
     } catch (error) {
@@ -61,7 +61,7 @@ const AdminProducts = () => {
   const getProducts = async () => {
     setLoading(true);
     const res = await axios.get(
-      `https://creed-backend-vxes.onrender.com/api/v1/product/productList/${page}`
+      `http://localhost:8080/api/v1/product/productList/${page}`
       );
     setLoading(false);
     setProducts(res.data.products);
@@ -76,7 +76,7 @@ const AdminProducts = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://creed-backend-vxes.onrender.com/api/v1/product/productList/${page}`
+        `http://localhost:8080/api/v1/product/productList/${page}`
       );
       setLoading(false);
       setProducts([...products, ...data?.products]);
@@ -88,7 +88,7 @@ const AdminProducts = () => {
   // Fetch categories from backend
   const getAllCategories = async () => {
     const c = await axios.get(
-      "https://creed-backend-vxes.onrender.com/api/v1/category/get-categories"
+      "http://localhost:8080/api/v1/category/get-categories"
     );
     setCategories(c.data.category);
   };
@@ -121,7 +121,7 @@ const AdminProducts = () => {
 
     // Fetch product details by ID
     const res = await axios.get(
-      `https://creed-backend-vxes.onrender.com/api/v1/product/getProduct/${id}`
+      `http://localhost:8080/api/v1/product/getProduct/${id}`
     );
     const product = res.data.product;
 
@@ -173,14 +173,14 @@ const AdminProducts = () => {
       if (isEditing) {
         // If editing, update the existing product
         await axios.put(
-          `https://creed-backend-vxes.onrender.com/api/v1/product/update/${selectedProductId}`,
+          `http://localhost:8080/api/v1/product/update/${selectedProductId}`,
           formData
         );
         getProducts();
       } else {
         // If adding a new product
         await axios.post(
-          "https://creed-backend-vxes.onrender.com/api/v1/product/create",
+          "http://localhost:8080/api/v1/product/create",
           formData,
           {
             headers: {
@@ -203,7 +203,7 @@ const AdminProducts = () => {
   // Handle product deletion
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://creed-backend-vxes.onrender.com/api/v1/product/delete/${id}`);
+      await axios.delete(`http://localhost:8080/api/v1/product/delete/${id}`);
       getProducts();
     } catch (error) {
       toast.error("Error in deleting product");

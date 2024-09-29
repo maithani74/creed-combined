@@ -22,7 +22,7 @@ const Orders = () => {
   const getAllOrders = async () => {
     try {
       const response = await axios.get(
-        "https://creed-backend-vxes.onrender.com/api/v1/order/getAllOrders",
+        "http://localhost:8080/api/v1/order/getAllOrders",
       );
       setOrders(response.data.orders);
     } catch (error) {

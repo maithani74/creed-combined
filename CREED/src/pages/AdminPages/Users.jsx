@@ -23,7 +23,7 @@ const Users = () => {
   const fetchAllUsers = async () => {
     try {
       const u = await axios.get(
-        "https://creed-backend-vxes.onrender.com/api/v1/user/get-users"
+        "http://localhost:8080/api/v1/user/get-users"
       );
       setUsers(u.data.users);
     } catch (error) {
@@ -52,7 +52,7 @@ const Users = () => {
       try {
         await axios
           .delete(
-            `https://creed-backend-vxes.onrender.com/api/v1/user/delete/${userId}`
+            `http://localhost:8080/api/v1/user/delete/${userId}`
           )
           .then(() => {
             toast.success("Deleted User Succesfully");

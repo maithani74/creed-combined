@@ -30,7 +30,7 @@ const Categories = () => {
   // Fetch all categories from backend
   const getAllCategories = async () => {
     const c = await axios.get(
-      "https://creed-backend-vxes.onrender.com/api/v1/category/get-categories"
+      "http://localhost:8080/api/v1/category/get-categories"
     );
     setCategories(c.data.category);
   };
@@ -43,7 +43,7 @@ const Categories = () => {
   const handleAddCategory = async () => {
     try {
       await axios.post(
-        "https://creed-backend-vxes.onrender.com/api/v1/category/create-category",
+        "http://localhost:8080/api/v1/category/create-category",
         {
           name: newCategory,
         }
@@ -65,7 +65,7 @@ const Categories = () => {
   const handleSaveEdit = async () => {
     try {
       await axios.put(
-        `https://creed-backend-vxes.onrender.com/api/v1/category/update-category/${editCategory._id}`,
+        `http://localhost:8080/api/v1/category/update-category/${editCategory._id}`,
         {
           name: editCategory.name,
         }
@@ -85,7 +85,7 @@ const Categories = () => {
     if (confirmDelete) {
       try {
         await axios.delete(
-          `https://creed-backend-vxes.onrender.com/api/v1/category/delete-category/${id}`
+          `http://localhost:8080/api/v1/category/delete-category/${id}`
         );
         getAllCategories(); // Refresh the list
       } catch (error) {

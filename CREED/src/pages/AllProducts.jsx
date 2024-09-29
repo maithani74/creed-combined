@@ -32,7 +32,7 @@ const ProductsPage = () => {
   const fetchFilteredProducts = async (filters = {}) => {
     try {
       const res = await axios.post(
-        "https://creed-backend-vxes.onrender.com/api/v1/product/getFilteredProducts",
+        "http://localhost:8080/api/v1/product/getFilteredProducts",
         filters
       );
       setProducts(res.data.products);

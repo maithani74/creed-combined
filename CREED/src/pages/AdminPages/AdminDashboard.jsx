@@ -24,7 +24,7 @@ const AdminDashboard = () => {
     const fetchLatestProducts = async () => {
       try {
         const response = await axios.get(
-          "https://creed-backend-vxes.onrender.com/api/v1/product/getLatest",
+          "http://localhost:8080/api/v1/product/getLatest",
         );
         setLatestProducts(response.data.products); // Assuming response.data is an array of products
         setLoading(false);

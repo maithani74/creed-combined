@@ -1,4 +1,4 @@
-const BASE_URL = "https://creed-backend-vxes.onrender.com";
+const BASE_URL = "http://localhost:8080";
 const VERSION = BASE_URL + "/api/v1";
 
 const req = {
