@@ -4,7 +4,7 @@ const jwt  =require("jsonwebtoken")
 
 export const requireSignIn = async(req,res)=>{
     try {
-        const decode  =jwt.verify(req.headers.authorization,process.env.JWT_KEY)
+        const decode  =jwt.verify(req.headers.authorization,"JBFHEWHJH389473H2")
         req.user = decode; 
         next();
     } catch (error) {

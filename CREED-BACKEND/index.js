@@ -14,7 +14,7 @@ const orderRouter = require("./routes/orderRouter.js");
 //disabled, using proxy in frontend
 app.use(
  cors({
-   origin: process.env.CORS_ORIGIN,
+   origin:"*",
    credentials: true,
  }),
 );
@@ -33,7 +33,7 @@ app.use(express.static(buildPath))
 //database connection
 const connection = async () => {
   try {
-    const con = await mongoose.connect(process.env.DB);
+    const con = await mongoose.connect("mongodb+srv://rahul:maithani@cluster0.wknn2.mongodb.net/creed");
     console.log("Connected DB successfully");
   } catch (err) {
     console.log("Error Connecting Database");
@@ -46,10 +46,10 @@ app.use("/api/v1/user", authRouter.router);
 app.use("/api/v1/product", productRouter.router);
 app.use("/api/v1/order", orderRouter.router);
 
-app.listen(process.env.PORT || 4000, (err) => {
+app.listen(8080, (err) => {
   if (err) {
     console.log("Error Running Server");
   }
   connection();
-  console.log("listening at port " + process.env.PORT || 4000);
+  console.log("listening at port " +8080);
 });
