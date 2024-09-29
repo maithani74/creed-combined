@@ -23,7 +23,7 @@ dotenv.config();
 cloudinary.config({
   cloud_name: "dysqjmme8",
   api_key:"875854661645593",
-  api_secret:Rc0fAgID6RnMzYcPA3bPIC2dyB4,
+  api_secret:"Rc0fAgID6RnMzYcPA3bPIC2dyB4",
 });
 
 const storage = new CloudinaryStorage({
